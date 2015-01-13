@@ -1,0 +1,28 @@
+# Last Modified: Mon Jan 12 16:39:12 2015
+#include <tunables/global>
+
+/usr/bin/minitube {
+  #include <abstractions/base>
+  #include <abstractions/audio>
+  #include <abstractions/fonts>
+  #include <abstractions/totem>
+
+  /bin/dash r,
+  /usr/bin/minitube mr,
+  /usr/bin/xdg-open rUx,
+  /usr/lib{,32,64}/** mra,
+  /usr/share/icons/** rk,
+
+  @{PROC}/@{pid}/cmdline r,
+  /{dev,run}/shm rw,
+
+  /tmp/user/1000/* rwlk,
+  @{HOME}/.ICEauthority r,
+  @{HOME}/.Xauthority r,
+  "@{HOME}/.local/share/data/Flavio Tordini/**" rwk,
+  "@{HOME}/.config/Flavio Tordini/*" rwk,
+  @{HOME}/.config/Trolltech.conf rk,
+  @{HOME}/.config/pulse/cookie rk,
+  @{HOME}/.local/share/mime/* r,
+
+}
